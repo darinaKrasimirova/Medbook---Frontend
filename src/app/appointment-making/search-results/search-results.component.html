@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-group row my-3">
+            <label class="col-lg-2 col-12 col-form-label text-center align-self-center">{{"Current search" | translate}}</label>
+            <select class="col-form-select col-lg-2 col-md-5 mx-2 m-md-2 my-sm-2" [formControl]="cityControl" >
+                <option value=0>{{"forms.search.cityInputDefault" | translate}}</option>
+                <option *ngFor="let city of cities$ | async" value={{city.id}} >{{"enums.cities." + city.name | translate}}</option>
+            </select>
+            <select class="col-form-select col-lg-2 col-md-5 mx-2 m-md-2 my-sm-2" [formControl]="fieldControl">
+                <option value=0>{{"forms.search.medicalFieldInputDefault" | translate}}</option>
+                <option *ngFor="let field of medicalFields$ | async" value={{field.id}}>{{"enums.medicalFields." + field.name | translate}}</option>
+            </select>
+            <input class="col-form-control col-lg-2 col-md-5 mx-2 m-md-2 my-sm-2" type="text" placeholder="Enter doctor name" [formControl]="nameControl">
+            <button type="button" class="col-form-control col-lg-2 col-md-5 btn btn-primary mx-2 m-md-2 my-sm-2" (click)="search()">{{"forms.search.searchButton" | translate}}</button>
+        </form>
+    </div>
+    <div class="row mx-1" *ngIf="(doctors$ | async) as doctors; else elseBlock">
+        <div class="col-lg-6 mt-3" *ngFor="let doctor of doctors">
+            <div class="card">
+                <div class="row my-2 mx-1">
+                    <img class="col-3 image" src="../../../assets/images/profile.jpg">
+                    <div class="col-9">
+                        <a role="button" (click)="gotoDoctor(doctor.id)">
+                            <h5 class="card-title text-center">{{doctor.name}}</h5>
+                        </a>
+                        <div class="row mt-4">
+                            <label class="col-4">{{"forms.searchResults.medicalFieldLabel" | translate}}</label>
+                            <p class="col-8">{{"enums.medicalFields." + doctor.medicalField | translate}}</p>
+                        </div>
+                        <div class="row">
+                            <label class="col-4">{{"forms.searchResults.description" | translate}}</label>
+                            <div class="col-8 description">
+                                <p>{{doctor.servicesDescription}}</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end my-3">
+                            <button class="col-4 btn btn-primary">{{"forms.searchResults.appoitmentBtn" | translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <ng-template class="row" #elseBlock>
+        <h3 class="text-center">{{"forms.searchResults.noResults" | translate}}</h3>
+    </ng-template>
+</div>

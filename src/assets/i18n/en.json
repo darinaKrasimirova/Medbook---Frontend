@@ -1,0 +1,56 @@
+{
+    "enums" : {
+        "medicalFields" : {
+            "allergyImmonology": "Allergy and immunology",
+            "anesthesiology": "Anesthesiology",
+            "dermatology": "Dermatology",
+            "diagnosticRadiology": "Diagnostic radiology",
+            "emergencyMedicine": "Emergency medicine",
+            "familyMedicine": "Family medicine",
+            "internalMedicine": "Internal medicine",
+            "medicalGenetics": "Medical genetics",
+            "neurology": "Neurology", 
+            "nuclearMedicine": "Nuclear medicine",
+            "obstetricsGynecology": "Obstetrics and gynecology", 
+            "ophthalmology": "Ophthalmology", 
+            "pathology": "Pathology",
+            "pediatrics": "Pediatrics",
+            "physicalMedicine": "Physical medicine and rehabilitation",
+            "preventiveMedicine": "Preventive medicine",
+            "psychiatry": "Psychiatry",
+            "radiationOncology": "Radiation oncology",
+            "surgery": "Surgery",
+            "urology": "Urology"
+        }, 
+        "cities" : {
+            "sofia": "Sofia",
+            "plovdiv": "Plovdiv",
+            "varna": "Varna",
+            "burgas": "Burgas",
+            "ruse": "Ruse",
+            "staraZagora": "Stara Zagora",
+            "pleven": "Pleven",
+            "sliven": "Sliven",
+            "dobrich": "Dobrich",
+            "shumen": "Shumen"
+        }
+    },
+    "forms" : {
+        "search" : {
+            "findDoctor": "Find the doctor you need",
+            "searchBy": "Search by city and medical field or by doctor's name",
+            "cityLabel": "City",
+            "cityInputDefault": "Select city", 
+            "medicalFieldLabel": "Medical field",
+            "medicalFieldInputDefault": "Select medical field",
+            "doctorNameLabel": "Doctor name",
+            "searchButton": "Search"
+        },
+        "searchResults" : {
+            "medicalFieldLabel" : "Medical field:", 
+            "description" : "Description",
+            "appoitmentBtn" : "Make appointment",
+            "noResults": "No doctors found matching the search"
+        }
+    }
+}

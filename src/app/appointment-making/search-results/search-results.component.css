@@ -1,0 +1,17 @@
+.image{
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.description{
+    height: 50px;
+}
+
+.description > p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
