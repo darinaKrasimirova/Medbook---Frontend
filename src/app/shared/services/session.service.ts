@@ -6,7 +6,7 @@ import { User } from "src/app/shared/models/User";
   })
   export class SessionService {
     
-  getUserFromSession() : User|null {
-    return null;
-  }
+    getUserFromSession() : User|null {
+        return null;
+    }
   }

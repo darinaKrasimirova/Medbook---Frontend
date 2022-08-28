@@ -1,6 +1,6 @@
 {
-    "enums" : {
-        "medicalFields" : {
+    "enums": {
+        "medicalFields": {
             "allergyImmonology": "Allergy and immunology",
             "anesthesiology": "Anesthesiology",
             "dermatology": "Dermatology",
@@ -22,7 +22,7 @@
             "surgery": "Surgery",
             "urology": "Urology"
         }, 
-        "cities" : {
+        "cities": {
             "sofia": "Sofia",
             "plovdiv": "Plovdiv",
             "varna": "Varna",
@@ -34,7 +34,7 @@
             "dobrich": "Dobrich",
             "shumen": "Shumen"
         },
-        "days" : {
+        "days": {
             "1": "Mon",
             "2": "Tue",
             "3": "Wed",
@@ -58,8 +58,8 @@
             "11": "Dec"
         }
     },
-    "forms" : {
-        "search" : {
+    "forms": {
+        "search": {
             "findDoctor": "Find the doctor you need",
             "searchBy": "Search by city and medical field or by doctor's name",
             "cityLabel": "City",
@@ -69,13 +69,13 @@
             "doctorNameLabel": "Doctor name",
             "searchButton": "Search"
         },
-        "searchResults" : {
-            "medicalFieldLabel" : "Medical field:", 
-            "description" : "Description",
-            "appoitmentBtn" : "Make appointment",
+        "searchResults": {
+            "medicalFieldLabel": "Medical field:", 
+            "description": "Description",
+            "appoitmentBtn": "Make appointment",
             "noResults": "No doctors found matching the search"
         },
-        "makeAppointment" : {
+        "makeAppointment": {
             "header": "Make appointment with ",
             "selectPlaceLabel": "Select place",
             "selectDateLabel": "Select date",
@@ -83,11 +83,22 @@
             "notSelected": "Please select date and hour for you appointment",
             "unsuccessful": "Something went wrong!",
             "successful": "Your appointment is created!"
+        }, 
+        "login": {
+            "title": "Log into you profile", 
+            "usernameLabel": "Username",
+            "usernameRequired": "Username is required",
+            "passwordLabel": "Password",
+            "passwordRequired": "Password is required",
+            "loginButton": "Log in",
+            "forgottenPassword": "Forgotten password",
+            "register": "Register",
+            "wrongCredentials": "Wrong username or password"
         }
-    },
-    "messages" : {
+    }, 
+    "messages": {
         "error": "Error",
         "warning": "Warning",
         "success": "Success"
-    }
+    } 
 } 

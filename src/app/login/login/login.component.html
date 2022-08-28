@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center">
+    <form class="component justify-content-center border border-info px-5 pt-5 pb-2 form needs-validation" [formGroup]="formGroup">
+        <h3 class="text-center">{{"forms.login.title" | translate}}</h3>
+        <div class="form-group row mt-5 justify-content-center has-validation">
+            <label for="usernameInput" class="col-4 col-form-label">{{"forms.login.usernameLabel" | translate}}</label>
+            <input class="col-form-control col-8" type="text" id="usernameInput" name="usernameInput" required [formControl]="usernameControl">
+            <small class="text-danger" *ngIf="usernameControl.invalid && (usernameControl.dirty || usernameControl.touched)">{{"forms.login.usernameRequired" | translate}}</small>     
+        </div>
+        <div class="form-group row mt-3 justify-content-center mr-4 ">
+            <label for="passwordInput" class="col-4 col-form-label">{{"forms.login.passwordLabel" | translate}}</label>
+            <input class="col-form-control col-8" type="password" id="passwordInput" required [formControl]="passwordControl">
+            <small class="text-danger" *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)">{{"forms.login.usernameRequired" | translate}}</small>     
+        </div>
+        <div class="form-group row mt-2">
+            <small class="text-danger" *ngIf="wrongCredentials">{{"forms.login.wrongCredentials" | translate}}</small>
+        </div>
+        <div class="form-group row mt-3 justify-content-center">
+            <button class="btn btn-primary col-4" [disabled]="formGroup.invalid" type="button" (click)="login()">{{"forms.login.loginButton" | translate}}</button>
+        </div>
+        <div class="form-group row mt-3 justify-content-between mr-4 ">
+            <a class="col-6" href="/updatePassword">
+                <small>{{"forms.login.forgottenPassword" | translate}}</small> 
+            </a>
+            <a class="col-6 text-end" href="/register">
+                <small class="text-end">{{"forms.login.register" | translate}}</small> 
+            </a>
+        </div>
+    </form>
+</div> 
+ 
