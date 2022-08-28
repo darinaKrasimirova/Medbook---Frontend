@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of, shareReplay, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { City } from '../models/City';
 import { MedicalField } from '../models/MedicalField';
 

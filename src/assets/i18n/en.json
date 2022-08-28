@@ -33,6 +33,29 @@
             "sliven": "Sliven",
             "dobrich": "Dobrich",
             "shumen": "Shumen"
+        },
+        "days" : {
+            "1": "Mon",
+            "2": "Tue",
+            "3": "Wed",
+            "4": "Thur",
+            "5": "Fri",
+            "6": "Sat",
+            "0": "Sun"
+        },
+        "months": {
+            "0": "Jan",
+            "1": "Feb",
+            "2": "Mar",
+            "3": "Apr",
+            "4": "May",
+            "5": "Jun",
+            "6": "Jul",
+            "7": "Aug",
+            "8": "Sep",
+            "9": "Oct",
+            "10": "Nov",
+            "11": "Dec"
         }
     },
     "forms" : {
@@ -51,6 +74,20 @@
             "description" : "Description",
             "appoitmentBtn" : "Make appointment",
             "noResults": "No doctors found matching the search"
+        },
+        "makeAppointment" : {
+            "header": "Make appointment with ",
+            "selectPlaceLabel": "Select place",
+            "selectDateLabel": "Select date",
+            "confirmButton": "Confirm",
+            "notSelected": "Please select date and hour for you appointment",
+            "unsuccessful": "Something went wrong!",
+            "successful": "Your appointment is created!"
         }
+    },
+    "messages" : {
+        "error": "Error",
+        "warning": "Warning",
+        "success": "Success"
     }
-}
+} 

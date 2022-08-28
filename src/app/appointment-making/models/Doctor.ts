@@ -7,6 +7,4 @@ export interface Doctor{
     medicalField: string
     image?: string
     servicesDescription?: string
-
-    
 }

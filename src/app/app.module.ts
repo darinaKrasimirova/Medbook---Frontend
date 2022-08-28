@@ -15,13 +15,16 @@ import { SearchResultsComponent } from './appointment-making/search-results/sear
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
+import { MakeAppointmentComponent } from './appointment-making/make-appointment/make-appointment.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MakeAppointmentComponent
   ],
   imports: [
     BrowserModule,

@@ -14,10 +14,7 @@ import { HttpSearchService } from '../services/http-search.service';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
-
-  url?: string
   doctors$?: Observable<Doctor[]> ;
-  
   medicalFields$?: Observable<MedicalField[]>;
   cities$?: Observable<City[]>;
 
