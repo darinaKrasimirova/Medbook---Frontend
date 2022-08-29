@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { MakeAppointmentComponent } from './appointment-making/make-appointment/make-appointment.component';
 import { LoginComponent } from './login/login/login.component';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login/login.component';
     SearchComponent,
     SearchResultsComponent,
     MakeAppointmentComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

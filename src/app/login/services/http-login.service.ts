@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class HttpLoginService {
         "password": password
       }
     });
+  }
+
+  register(user: User): Observable<any> {
+    return this.http.post(this.baseUrl + "/users", user);
   }
 }

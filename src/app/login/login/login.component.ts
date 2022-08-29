@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlOptions, FormGroup, Validators } from '@angular/forms';
+import { catchError, of } from 'rxjs';
 import { HttpLoginService } from '../services/http-login.service';
 
 @Component({
@@ -22,12 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.loginService.login(this.usernameControl.value, this.passwordControl.value)
-      .subscribe(
-        next => {},
-        err => this.wrongCredentials = true,
-        () => this.gotoProfile()
-      );
+    this.loginService.login(this.usernameControl.value, this.passwordControl.value).pipe(
+      catchError(err => {
+        this.wrongCredentials = true;
+        return of();
+      })
+    ).subscribe(data => this.gotoProfile());
   }
 
   gotoProfile(): void{

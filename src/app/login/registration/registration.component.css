@@ -1,0 +1,8 @@
+.form{
+    width: 500px;
+}
+
+.form-group.required .col-form-label:after {
+  content:"*";
+  color:red;
+}

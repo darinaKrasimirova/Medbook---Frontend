@@ -56,6 +56,10 @@
             "9": "Oct",
             "10": "Nov",
             "11": "Dec"
+        }, 
+        "accountType": {
+            "user": "User",
+            "doctor": "Doctor"
         }
     },
     "forms": {
@@ -94,6 +98,22 @@
             "forgottenPassword": "Forgotten password",
             "register": "Register",
             "wrongCredentials": "Wrong username or password"
+        },
+        "registration": {
+            "title": "Register",
+            "emailLabel": "E-mail", 
+            "emailRequired": "E-mail is required",
+            "emailPatternError": "E-mail should be of pattern email@example.com",
+            "usernameLabel": "Username", 
+            "usernameRequired": "Username is required",
+            "passwordLabel": "Password", 
+            "passwordRequired": "Password is required",
+            "accountTypeLabel": "Account type",
+            "nameLabel": "Name",
+            "nameRequired": "Name is required for doctors accounts",
+            "registerButton": "Register",
+            "registartionCompleteMessage": "You have successfully registered. An email was sent for confirmation.",
+            "unsuccessful": "Something went wrong! Try again later!"
         }
     }, 
     "messages": {
