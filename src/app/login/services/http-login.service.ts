@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Doctor } from 'src/app/shared/models/Doctor';
 import { User } from 'src/app/shared/models/User';
 
 @Injectable({
@@ -22,5 +23,9 @@ export class HttpLoginService {
 
   register(user: User): Observable<any> {
     return this.http.post(this.baseUrl + "/users", user);
+  }
+
+  registerDoctor(doctor: Doctor): Observable<any> {
+    return this.http.post(this.baseUrl + "/doctors", doctor);
   }
 }

@@ -1,5 +1,5 @@
-import { Doctor } from "./Doctor"
-import { Workplace } from "./Workplace"
+import { Doctor } from "../../shared/models/Doctor"
+import { Workplace } from "../../shared/models/Workplace"
 import { User } from "../../shared/models/User"
 
 export interface Appointment{

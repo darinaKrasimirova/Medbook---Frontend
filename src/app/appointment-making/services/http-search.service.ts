@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Doctor } from '../models/Doctor';
-import { Workplace } from '../models/Workplace';
+import { Doctor } from '../../shared/models/Doctor';
+import { Workplace } from '../../shared/models/Workplace';
 import { Appointment } from '../models/Appointment';
 import { DateService } from './date.service';
 import { User } from '../../shared/models/User';

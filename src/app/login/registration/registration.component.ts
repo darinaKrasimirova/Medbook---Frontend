@@ -3,7 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn,
 import { Router } from '@angular/router';
 import { HttpLoginService } from '../services/http-login.service';
 import { User } from "src/app/shared/models/User";
-import { catchError, of } from 'rxjs';
+import { catchError, from, of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 

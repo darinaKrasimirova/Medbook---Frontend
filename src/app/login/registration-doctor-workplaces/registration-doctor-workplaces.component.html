@@ -1,0 +1,12 @@
+<div class="component p-3">
+    <h4 class="text-center mt-5">{{"forms.registrationDoctorWorkplaces.title" | translate}}</h4>
+    <div class="component p-3 border-bottom border-3 rounded-3" *ngFor="let workplace of workplaces">
+        <div class="d-flex justify-content-end" *ngIf="workplaces.indexOf(workplace) > 0">
+            <button class="btn btn-sm btn-outline-danger rounded-pill align-self-center" type="button" (click)="removeWorkplace(workplace)">{{"forms.registrationDoctorWorkplaces.removeButton" | translate}}</button> 
+        </div>
+        <app-workplace-form [workplace]="workplace"></app-workplace-form>
+    </div>
+    <div class="form-group row my-2 justify-content-end mt-3 mx-1">
+        <button class="btn btn-info btn-sm col-2" type="button" (click)="addNewWorkplace()">{{"forms.registrationDoctorWorkplaces.newWorkplaceButton" | translate}}</button>
+    </div>
+</div>

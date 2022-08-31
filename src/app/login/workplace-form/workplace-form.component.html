@@ -1,0 +1,21 @@
+<form class="">
+    <div class="form-group row mt-3">
+        <label class="col-form-label col-4">{{"forms.workplaceForm.cityLabel" | translate}}</label>
+        <select class="col-form-select col-8" [formControl]="cityControl">
+            <option *ngFor="let city of cities$ | async" [value]="city">{{"enums.cities." + city.name | translate}}</option>
+        </select>
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-form-label col-4">{{"forms.workplaceForm.addressLabel" | translate}}</label>
+        <input class="col-form-select col-8"  [formControl]="addressControl">
+    </div>
+    <h6 class="mt-5">{{"forms.workplaceForm.workscheduleHeading" | translate}}</h6>
+    <small>{{"forms.workplaceForm.workscheduleNote" | translate}}</small>
+    <div class="form-group row my-2 justify-content-between border border-1 rounded-3 mt-3"  *ngFor="let item of workschedules">
+        <app-workschedule-item class="col-form-control col-11" [workscheduleItem]="item"></app-workschedule-item>
+        <button type="button" class="col-form-control col-1 btn btn-sm btn-outline-danger rounded-circle m-2 align-self-center removeBtn" (click)="removeSelf(item)">X</button>
+    </div>
+    <div class="form-group row my-2 justify-content-end mt-3">
+        <button class="btn btn-info btn-sm col-2" type="button" (click)="addNewItem()">{{"forms.workplaceForm.newRecordButton" | translate}}</button>
+    </div>
+</form>

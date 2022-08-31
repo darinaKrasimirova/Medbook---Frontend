@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { City } from 'src/app/shared/models/City';
 import { MedicalField } from 'src/app/shared/models/MedicalField';
 import { HttpSharedService } from 'src/app/shared/services/http-shared.service';
-import { Doctor } from '../models/Doctor';
+import { Doctor } from '../../shared/models/Doctor';
 import { HttpSearchService } from '../services/http-search.service';
 
 @Component({

@@ -1,0 +1,39 @@
+<form class="p-5">
+    <h4 class="text-center">{{"forms.registrationDoctorInfo.title" | translate}}</h4>
+    <div class="form-group row mt-5">
+        <label for="medicalFieldInput" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.medicalFieldLabel" | translate}}</label>
+        <select class="col-form-select col-8" id="medicalFieldInput" [formControl]="fieldControl">
+            <option value=0>{{"forms.search.medicalFieldInputDefault" | translate}}</option>
+            <option *ngFor="let field of medicalFields$ | async" value={{field}}>{{field.name}}</option>
+        </select>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="practiseStartInput" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.practiceStartLabel" | translate}}</label>
+        <input class="col-form-control col-8" type="date" id="practiseStartInput" name="practiseStartInput" [formControl]="dateControl">
+        <small class="text-end text-secondary">{{"forms.registrationDoctorInfo.practiceStartNote" | translate}}</small>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="personalDescription" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.personalDescriptionLabel" | translate}}</label>
+        <textarea class="col-form-control col-8" type="date" id="personalDescription" name="personalDescription" [formControl]="personalDescritionControl"></textarea>
+        <small class="text-end text-secondary">{{"forms.registrationDoctorInfo.personalDescriptionNote" | translate}}</small>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="educationDescription" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.educationDescriptionLabel" | translate}}</label>
+        <textarea class="col-form-control col-8" type="date" id="educationDescription" name="educationDescription" [formControl]="educationDescritionControl"></textarea>
+        <small class="text-end text-secondary">{{"forms.registrationDoctorInfo.educationDescriptionNote" | translate}}</small>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="practiceDescription" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.practiceDescriptionLabel" | translate}}</label>
+        <textarea class="col-form-control col-8" type="date" id="practiceDescription" name="practiceDescription" [formControl]="practiceDescritionControl"></textarea>
+        <small class="text-end text-secondary">{{"forms.registrationDoctorInfo.practiceDescriptionNote" | translate}}</small>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="servicesDescription" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.servicesDescriptionLabel" | translate}}</label>
+        <textarea class="col-form-control col-8" type="date" id="servicesDescription" name="servicesDescription" [formControl]="servicesDescritionControl"></textarea>
+        <small class="text-end text-secondary">{{"forms.registrationDoctorInfo.servicesDescriptionNote" | translate}}</small>
+    </div>
+    <div class="form-group row mt-3 justify-content-center">
+        <label for="photoInput" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.photoLabel" | translate}}</label>
+        <input class="col-form-control col-8" type="file" accept="image/*" id="photoInput" name="photoInput" (change)="toBase64($event)">
+    </div>
+</form>

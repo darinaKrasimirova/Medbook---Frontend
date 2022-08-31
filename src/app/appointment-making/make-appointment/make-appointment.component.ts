@@ -4,10 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, Observable, of, switchMap } from 'rxjs';
-import { User } from 'src/app/shared/models/User';
 import { SessionService } from 'src/app/shared/services/session.service';
-import { Doctor } from '../models/Doctor';
-import { Workplace } from '../models/Workplace';
+import { Doctor } from '../../shared/models/Doctor';
+import { Workplace } from '../../shared/models/Workplace';
 import { DateService } from '../services/date.service';
 import { HttpSearchService } from '../services/http-search.service';
 

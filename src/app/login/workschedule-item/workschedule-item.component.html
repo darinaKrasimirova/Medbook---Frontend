@@ -1,0 +1,10 @@
+<div class="component row form-group p-2">
+    <label class="col-form-label col-1 my-1">{{"forms.workscheduleItem.dayLabel" | translate}}:</label>
+    <select class="col-form-select col-3 my-1" [formControl]="dayControl">
+        <option *ngFor="let day of [1,2,3,4,5,6,0]" [value]="day">{{"enums.days-long." + day | translate}}</option>
+    </select>
+    <label class="col-form-label col-1 my-1">{{"forms.workscheduleItem.fromLabel" | translate}}:</label>
+    <input class="col-form-input col-2 mx-2 my-1" type="time" [formControl]="fromControl">
+    <label class="col-form-label col-1 my-1">{{"forms.workscheduleItem.toLabel" | translate}}:</label>
+    <input class="col-form-input col-2 mx-2 my-1" type="time" [formControl]="toControl">
+</div>

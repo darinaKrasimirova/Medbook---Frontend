@@ -43,6 +43,15 @@
             "6": "Sat",
             "0": "Sun"
         },
+        "days-long": {
+            "1": "Monday",
+            "2": "Tuesday",
+            "3": "Wednesday",
+            "4": "Thursday",
+            "5": "Friday",
+            "6": "Saturday",
+            "0": "Sunday"
+        },
         "months": {
             "0": "Jan",
             "1": "Feb",
@@ -114,6 +123,43 @@
             "registerButton": "Register",
             "registartionCompleteMessage": "You have successfully registered. An email was sent for confirmation.",
             "unsuccessful": "Something went wrong! Try again later!"
+        },
+        "registrationDoctor": {
+            "previousButton": "Previous",
+            "confirmButton": "Confirm",
+            "nextButton": "Next"
+        },
+        "registrationDoctorInfo": {
+            "title": "Complete your registration",
+            "medicalFieldLabel": "Select your medical field",
+            "practiceStartLabel": "Started practicing",
+            "practiceStartNote": "Since when you have been working as doctor",
+            "personalDescriptionLabel": "Personal description",
+            "personalDescriptionNote": "Add description about yourserf",
+            "educationDescriptionLabel": "Education description",
+            "educationDescriptionNote": "Where have you studied",
+            "practiceDescriptionLabel": "Practice description",
+            "practiceDescriptionNote": "Where have you worked",
+            "servicesDescriptionLabel": "Services description",
+            "servicesDescriptionNote": "What services/manupulations do offer",
+            "photoLabel": "Add photo"
+        },
+        "registrationDoctorWorkplaces": {
+            "title": "Add your workplaces",
+            "newWorkplaceButton": "Add workplace",
+            "removeButton": "Remove workplace"
+        },
+        "workplaceForm": {
+            "cityLabel": "Select city",
+            "addressLabel": "Address",
+            "workscheduleHeading": "Add your workschedule for this workplace",
+            "workscheduleNote": "Add line for every interval. There can be multiple intervals for a day.",
+            "newRecordButton": "Add interval"
+        },
+        "workscheduleItem": {
+            "dayLabel": "Day",
+            "fromLabel": "From",
+            "toLabel": "To"
         }
     }, 
     "messages": {
