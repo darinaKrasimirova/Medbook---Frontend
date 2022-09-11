@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlOptions, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
+import { User } from 'src/app/shared/models/User';
+import { SessionService } from 'src/app/shared/services/session.service';
 import { HttpLoginService } from '../services/http-login.service';
 
 @Component({
@@ -14,7 +17,10 @@ export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   wrongCredentials = false;
   
-  constructor(private loginService: HttpLoginService) { }
+  constructor(private loginService: HttpLoginService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private session: SessionService) { }
   
   ngOnInit(): void {
     this.usernameControl = new FormControl("", Validators.required);
@@ -28,10 +34,21 @@ export class LoginComponent implements OnInit {
         this.wrongCredentials = true;
         return of();
       })
-    ).subscribe(data => this.gotoProfile());
+    ).subscribe(data => this.gotoProfile(data));
   }
 
-  gotoProfile(): void{
+  gotoProfile(data: any): void{
+    let username = this.session.createSession(data);
 
+    if(this.route.snapshot.queryParamMap.has("prev")){
+      let str = this.route.snapshot.queryParamMap.get("prev") ?? ("profile?username=" + username);
+      this.router.navigateByUrl(str);
+    }else{
+      this.router.navigate(["profile"], {
+        queryParams : {
+          "username": username
+        }
+      });
+    }
   }
 }

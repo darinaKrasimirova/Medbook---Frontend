@@ -67,7 +67,7 @@
             "11": "Dec"
         }, 
         "accountType": {
-            "user": "User",
+            "patient": "User (Patient)",
             "doctor": "Doctor"
         }
     },
@@ -86,12 +86,16 @@
             "medicalFieldLabel": "Medical field:", 
             "description": "Description",
             "appoitmentBtn": "Make appointment",
-            "noResults": "No doctors found matching the search"
+            "noResults": "No doctors found matching the search",
+            "doctorNamePlaceholder": "Enter doctor name",
+            "currentSearchLabel": "Current search"
         },
         "makeAppointment": {
             "header": "Make appointment with ",
             "selectPlaceLabel": "Select place",
             "selectDateLabel": "Select date",
+            "commentLabel":"Comment",
+            "commentPlaceholder":"Add comment for the doctor",
             "confirmButton": "Confirm",
             "notSelected": "Please select date and hour for you appointment",
             "unsuccessful": "Something went wrong!",
@@ -115,13 +119,16 @@
             "emailPatternError": "E-mail should be of pattern email@example.com",
             "usernameLabel": "Username", 
             "usernameRequired": "Username is required",
+            "usernameExists": "The username is already taken",
             "passwordLabel": "Password", 
             "passwordRequired": "Password is required",
             "accountTypeLabel": "Account type",
             "nameLabel": "Name",
             "nameRequired": "Name is required for doctors accounts",
+            "phoneNumberLabel":"Телефонен номер",
             "registerButton": "Register",
-            "registartionCompleteMessage": "You have successfully registered. An email was sent for confirmation.",
+            "registartionCompleteMessage": "You have successfully registered.",
+            "registartionCompleteDoctorMessage": "Log into your profile to complete the registration.",
             "unsuccessful": "Something went wrong! Try again later!"
         },
         "registrationDoctor": {
@@ -154,17 +161,57 @@
             "addressLabel": "Address",
             "workscheduleHeading": "Add your workschedule for this workplace",
             "workscheduleNote": "Add line for every interval. There can be multiple intervals for a day.",
-            "newRecordButton": "Add interval"
+            "newRecordButton": "Add interval",
+            "nameLabel":"Name", 
+            "nameNote":"You can add a name for this workplace for clarification"
         },
         "workscheduleItem": {
             "dayLabel": "Day",
             "fromLabel": "From",
             "toLabel": "To"
+        },
+        "userProfile": {
+            "title": "Welcome ",
+            "completeDoctorRegistrationButton": "Complete your registration",
+            "userDataTitle": "Your account data",
+            "usernameLabel": "Username",
+            "emailLabel": "E-mail",
+            "passwordLabel": "Update Password",
+            "confirmPasswordLabel": "Confirm password",
+            "nameLabel": "Name",
+            "phoneNumberLabel": "Phone number",
+            "updateButton": "Update",
+            "confirmButton": "Confirm",
+            "cancelButton": "Cancel",
+            "passwordMismatch": "Passwords don't match",
+            "appointmentsHeading": "Your appointments",
+            "table": {
+                "doctorHeader": "Doctor",
+                "patientHeader": "Patient",
+                "timeHeader": "Time",
+                "placeHeader": "Place",
+                "commentHeader": "Comment",
+                "phoneHeader": "Phone number"
+            }, 
+            "dataUpdated": "Data updated successfully",
+            "dataNotUpdated": "Something went wrong. Data is not updated."
+        },
+        "doctorProfile": {
+            "fieldLabel": "Medical field: ",
+            "personalDescriptionLabel": "Personal description",
+            "educationDescriptionLabel": "Education description",
+            "practiceDescriptionLabel": "Practice description",
+            "servicesDescriptionLabel": "Services description"
+        
         }
     }, 
     "messages": {
         "error": "Error",
         "warning": "Warning",
         "success": "Success"
-    } 
+    },
+    "nav": {
+        "signIn": "Sign in",
+        "logout": "Log out"
+    }
 } 

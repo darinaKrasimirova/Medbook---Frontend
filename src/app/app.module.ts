@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 //modules and services
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CustomHttpInterceptor } from './shared/CustomHttpInterceptor';
 
 //components
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { RegistrationDoctorComponent } from './login/registration-doctor/registr
 import { RegistrationDoctorWorkplacesComponent } from './login/registration-doctor-workplaces/registration-doctor-workplaces.component';
 import { WorkplaceFormComponent } from './login/workplace-form/workplace-form.component';
 import { WorkscheduleItemComponent } from './login/workschedule-item/workschedule-item.component';
+import { UserProfileComponent } from './profile/user-profile/user-profile.component';
+import { DoctorProfileComponent } from './profile/doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { WorkscheduleItemComponent } from './login/workschedule-item/workschedul
     RegistrationDoctorComponent,
     RegistrationDoctorWorkplacesComponent,
     WorkplaceFormComponent,
-    WorkscheduleItemComponent
+    WorkscheduleItemComponent,
+    UserProfileComponent,
+    DoctorProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,7 @@ import { WorkscheduleItemComponent } from './login/workschedule-item/workschedul
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       },
-      defaultLanguage: 'en'
+      defaultLanguage: 'bg'
     }),
     ToastrModule.forRoot({
       timeOut: 10000,
@@ -60,7 +65,9 @@ import { WorkscheduleItemComponent } from './login/workschedule-item/workschedul
       preventDuplicates: true,
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

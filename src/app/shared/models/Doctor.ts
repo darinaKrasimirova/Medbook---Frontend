@@ -3,7 +3,9 @@ import { Workplace } from "./Workplace"
 
 export interface Doctor{
     id?: number
+    userId?: number
     name: string
+    phoneNumber?:string
     personalDescription?: string
     educationDescription?: string
     practiceStart: Date

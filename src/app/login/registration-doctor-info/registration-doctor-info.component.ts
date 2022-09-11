@@ -33,7 +33,7 @@ export class RegistrationDoctorInfoComponent implements OnInit {
     );
 
     this.fieldControl = new FormControl(this.doctor?.medicalField ?? 0);
-    this.fieldControl.valueChanges.subscribe(data => this.doctor.medicalField = data);
+    this.fieldControl.valueChanges.subscribe(data => this.doctor.medicalField = {id: Number(data)});
 
     this.dateControl = new FormControl(this.doctor?.practiceStart);
     this.dateControl.valueChanges.subscribe(data => this.doctor.practiceStart = data);

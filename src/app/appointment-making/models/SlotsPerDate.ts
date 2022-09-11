@@ -1,7 +1,7 @@
 export interface SlotsPerDate{
-    date: Date
+    date: string
     slots: {
-        time: Date,
-        disabled: boolean
+        time: string,
+        taken: boolean
     }[]
 }

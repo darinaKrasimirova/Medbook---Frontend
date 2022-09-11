@@ -1,1 +1,4 @@
-<p>home works!</p>
+<div class="component row mt-5 justify-content-center">
+    <app-search class="col-6 offset-1"></app-search>
+    <app-login class="col-5" *ngIf="!hasSession()"></app-login>
+</div>

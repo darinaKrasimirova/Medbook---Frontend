@@ -4,7 +4,7 @@
         <label for="medicalFieldInput" class="col-4 col-form-label">{{"forms.registrationDoctorInfo.medicalFieldLabel" | translate}}</label>
         <select class="col-form-select col-8" id="medicalFieldInput" [formControl]="fieldControl">
             <option value=0>{{"forms.search.medicalFieldInputDefault" | translate}}</option>
-            <option *ngFor="let field of medicalFields$ | async" value={{field}}>{{field.name}}</option>
+            <option *ngFor="let field of medicalFields$ | async" value={{field.id}}>{{"enums.medicalFields." + field.name | translate}}</option>
         </select>
     </div>
     <div class="form-group row mt-3 justify-content-center">

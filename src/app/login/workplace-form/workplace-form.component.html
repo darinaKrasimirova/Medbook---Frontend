@@ -2,12 +2,17 @@
     <div class="form-group row mt-3">
         <label class="col-form-label col-4">{{"forms.workplaceForm.cityLabel" | translate}}</label>
         <select class="col-form-select col-8" [formControl]="cityControl">
-            <option *ngFor="let city of cities$ | async" [value]="city">{{"enums.cities." + city.name | translate}}</option>
+            <option *ngFor="let city of cities$ | async" value={{city.id}}>{{"enums.cities." + city.name | translate}}</option>
         </select>
     </div>
     <div class="form-group row mt-3">
         <label class="col-form-label col-4">{{"forms.workplaceForm.addressLabel" | translate}}</label>
         <input class="col-form-select col-8"  [formControl]="addressControl">
+    </div>
+    <div class="form-group row mt-3">
+        <label class="col-form-label col-4">{{"forms.workplaceForm.nameLabel" | translate}}</label>
+        <input class="col-form-select col-8"  [formControl]="nameControl">
+        <small class="text-secondary" >{{"forms.workplaceForm.nameNote" | translate}}</small>
     </div>
     <h6 class="mt-5">{{"forms.workplaceForm.workscheduleHeading" | translate}}</h6>
     <small>{{"forms.workplaceForm.workscheduleNote" | translate}}</small>

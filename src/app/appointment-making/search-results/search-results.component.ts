@@ -47,7 +47,12 @@ export class SearchResultsComponent implements OnInit {
   }
 
   gotoDoctor(id: number|undefined): void {
-    console.log('yes')
+    this.router.navigate(
+      ['profile'],
+      {
+        relativeTo: this.route,
+        queryParams: {id: id}
+      });
   }
 
   search(): void {
@@ -62,6 +67,14 @@ export class SearchResultsComponent implements OnInit {
         queryParamsHandling: 'merge'
       }
     ).catch(err => console.log(err))
+  }
+
+  makeAppointment(doctorId: number){
+    this.router.navigate(["appointment"], {
+      queryParams: {
+        doctorId: doctorId
+      }
+    })
   }
 
 }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { catchError, Observable, of, switchMap } from 'rxjs';
+import { catchError, find, Observable, of, switchMap, tap } from 'rxjs';
 import { SessionService } from 'src/app/shared/services/session.service';
 import { Doctor } from '../../shared/models/Doctor';
 import { Workplace } from '../../shared/models/Workplace';
-import { DateService } from '../services/date.service';
+import { DateService } from '../../shared/services/date.service';
+import { SlotsPerDate } from '../models/SlotsPerDate';
 import { HttpSearchService } from '../services/http-search.service';
 
 @Component({
@@ -19,18 +20,20 @@ export class MakeAppointmentComponent implements OnInit {
   
   dateControl: FormControl = new FormControl(this.dateService.toDateString(new Date()));
   workplaceControl: FormControl = new FormControl("");
+  commentControl: FormControl = new FormControl("");
 
   workplaces$?: Observable<Workplace[]>;
  
   selectPlaceDisabled = false;
   dateRange: Date[] = [];
-  slotsPerDate = new Map<string,{time: string, disabled: boolean}[]>();
+  slotsPerDate: SlotsPerDate[] = [];
 
   doctor?: Doctor;
   selectedHour?: {day: string, hour: string};
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private dateService:DateService,
     private searchService: HttpSearchService,
     private toast: ToastrService, 
@@ -39,6 +42,16 @@ export class MakeAppointmentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!this.session.hasSession()){
+      console.log(this.route)
+      this.router.navigate(["login"], {
+        queryParams: {
+          prev: "appointment?id=" + this.route.snapshot.queryParamMap.get("id")
+        }
+      })
+      return;
+    }
+
     this.dateRange = this.dateService.getRange(5, -1);
 
     this.workplaceControl.valueChanges.subscribe(e => this.loadSlots());
@@ -52,7 +65,7 @@ export class MakeAppointmentComponent implements OnInit {
       switchMap(params => this.searchService.getDoctor(Number(params.get("doctorId")))),
       switchMap(doc => {
         this.doctor = doc;
-        return this.searchService.getWorkplacesForDoctor(doc.id ? doc.id : 0)
+        return this.searchService.getWorkplacesForDoctor(doc.id ?? 0)
       }),
       catchError(err => {
         return of([])
@@ -71,9 +84,9 @@ export class MakeAppointmentComponent implements OnInit {
   }
 
   loadSlots(): void {
-    this.searchService.getTimeSlots(this.doctor?.id ? this.doctor.id : 0, this.dateRange)
+    this.searchService.getTimeSlots(this.workplaceControl.value, this.dateRange)
       .subscribe(data => {
-        //set slots
+        this.slotsPerDate = data;
       })
   }
 
@@ -89,10 +102,12 @@ export class MakeAppointmentComponent implements OnInit {
     if(!this.doctor){
       return;
     }
-    this.searchService.makeAppointment(this.doctor, this.selectedHour.day, this.selectedHour.hour, this.workplaceControl.value, user)
-      .subscribe(next => {},
-                err => this.toast.error(this.translate.instant("forms.makeAppointment.unsuccessful"), this.translate.instant("messages.error")),
-                () => this.toast.success(this.translate.instant("forms.makeAppointment.successful"), this.translate.instant("messages.success")));
+    this.searchService.makeAppointment(this.doctor, this.selectedHour.day, this.selectedHour.hour, Number(this.workplaceControl.value), user, this.commentControl.value).pipe(
+      catchError(err => {
+        this.toast.error(this.translate.instant("forms.makeAppointment.unsuccessful"), this.translate.instant("messages.error"));
+        return of();
+      })
+    ).subscribe(data => this.toast.success(this.translate.instant("forms.makeAppointment.successful"), this.translate.instant("messages.success")));
   } 
 
   setSelected(date: Date, time: string){
@@ -100,7 +115,7 @@ export class MakeAppointmentComponent implements OnInit {
 
     this.dateRange.forEach(date => {
       let dateString = this.dateToString(date);
-      this.slotsPerDate.get(dateString)?.forEach(slot => {
+      this.slotsPerDate.find(e => e.date === dateString)?.slots.forEach(slot => {
         if(!(dateString === this.selectedHour?.day) || !(slot.time === this.selectedHour?.hour)){
           document.getElementById("btn" + dateString + slot.time)?.classList.remove('active');
         }
@@ -111,5 +126,16 @@ export class MakeAppointmentComponent implements OnInit {
 
   public dateToString(date: Date): string{
     return this.dateService.toDateString(date);
+  }
+
+  getSlotsForDate(day: Date): {time: string, taken: boolean}[] {
+    return this.slotsPerDate.find(({date}) => date === this.dateToString(day))?.slots ?? [];
+  }
+
+  isInThePast(day: Date, time: string): boolean{
+    let splitted = time.split(":");
+    day.setHours(Number(splitted[0]));
+    day.setMinutes(Number(splitted[1]))
+    return day <= new Date();
   }
 }

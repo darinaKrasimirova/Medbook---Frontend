@@ -26,13 +26,18 @@ export class RegistrationDoctorComponent implements OnInit {
     private translate: TranslateService) { }
 
   ngOnInit(): void {
+    // this.route.queryParamMap.subscribe(params => {
+    //   let userId = params.get("userId");
+    //   if(this.doctor){
+    //     this.doctor.userId = Number(userId);
+    //   }
+    // });
+
     if(this.route.children.length == 0){
       this.gotoPrevious();
-      console.log('ne')
       return;
     }
 
-    console.log(document.getElementById("btnNext"))
     if(this.route.children[0].routeConfig?.path === "info"){
       document.getElementById("btnNext")?.classList.remove("hidden");
       document.getElementById("btnPrevious")?.classList.add("hidden");
@@ -46,7 +51,7 @@ export class RegistrationDoctorComponent implements OnInit {
 
   onActivate(component:any){
     if(!this.doctor){
-      this.doctor = {id: 5} as Doctor;
+      this.doctor = {userId:5} as Doctor;
     }
     if(typeof component.setDoctor === 'function'){
       component.setDoctor(this.doctor);

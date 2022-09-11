@@ -1,0 +1,217 @@
+{
+    "enums": {
+        "medicalFields": {
+            "allergyImmonology": "Алергии и имунология",
+            "anesthesiology": "Анестезиология",
+            "dermatology": "Дерматология",
+            "diagnosticRadiology": "Диагностична радиология",
+            "emergencyMedicine": "Спешна медицина",
+            "familyMedicine": "Семейна медицина",
+            "internalMedicine": "Вътрешна медицина",
+            "medicalGenetics": "Генетика",
+            "neurology": "Неврология", 
+            "nuclearMedicine": "Ядрена медицина",
+            "obstetricsGynecology": "Акушерство и гинекология", 
+            "ophthalmology": "Офтамология", 
+            "pathology": "Патология",
+            "pediatrics": "Педиатрика",
+            "physicalMedicine": "Рехабилитация",
+            "preventiveMedicine": "Превантивна медицина",
+            "psychiatry": "Психиатрия",
+            "radiationOncology": "Онкология",
+            "surgery": "Хирургия",
+            "urology": "Урология"
+        }, 
+        "cities": {
+            "sofia": "София",
+            "plovdiv": "Пловдив",
+            "varna": "Варна",
+            "burgas": "Бургаас",
+            "ruse": "Русе",
+            "staraZagora": "Стара Загора",
+            "pleven": "Плевен",
+            "sliven": "Сливен",
+            "dobrich": "Добрич",
+            "shumen": "Шумен"
+        },
+        "days": {
+            "1": "Пон",
+            "2": "Вт",
+            "3": "Ср",
+            "4": "Четв",
+            "5": "Пет",
+            "6": "Съб",
+            "0": "Нед"
+        },
+        "days-long": {
+            "1": "Понеделник",
+            "2": "Вторник",
+            "3": "Сряда",
+            "4": "Четвъртък",
+            "5": "Петък",
+            "6": "Събота",
+            "0": "Неделя"
+        },
+        "months": {
+            "0": "Ян",
+            "1": "Фев",
+            "2": "Март",
+            "3": "Апр",
+            "4": "Май",
+            "5": "Юни",
+            "6": "Юли",
+            "7": "Авг",
+            "8": "Септ",
+            "9": "Окт",
+            "10": "Ноем",
+            "11": "Дек"
+        }, 
+        "accountType": {
+            "patient": "Потребител (пациент)",
+            "doctor": "Лекар"
+        }
+    },
+    "forms": {
+        "search": {
+            "findDoctor": "Намерете подходящия за вас Лекар",
+            "searchBy": "Търсете по град и специалност или по име на лекаря",
+            "cityLabel": "Град",
+            "cityInputDefault": "Избрете град", 
+            "medicalFieldLabel": "Специалност",
+            "medicalFieldInputDefault": "Изберете специалност",
+            "doctorNameLabel": "Име на лекар",
+            "searchButton": "Търси"
+        },
+        "searchResults": {
+            "medicalFieldLabel": "Специалност:", 
+            "description": "Описание",
+            "appoitmentBtn": "Запази час",
+            "noResults": "Не подходящи намерихме лекари",
+            "doctorNamePlaceholder": "Име на лекар",
+            "currentSearchLabel": "Резултати за:"
+        },
+        "makeAppointment": {
+            "header": "Запази час при ",
+            "selectPlaceLabel": "Изберете място",
+            "selectDateLabel": "Изберете дата",
+            "commentLabel":"Коментар",
+            "commentPlaceholder":"Довавете коментар за лекаря",
+            "confirmButton": "Потвърди",
+            "notSelected": "Моля изберете дата и час",
+            "unsuccessful": "Нещо се обърка!",
+            "successful": "Успешно запазихте час!"
+        }, 
+        "login": {
+            "title": "Влезте в профила си", 
+            "usernameLabel": "Потребителско име",
+            "usernameRequired": "Потребителското име е задържително",
+            "passwordLabel": "Парола",
+            "passwordRequired": "Паролата е задължиелна",
+            "loginButton": "Влез",
+            "forgottenPassword": "Забравена парола",
+            "register": "Регистрация",
+            "wrongCredentials": "Грешно потребителско име или парола"
+        },
+        "registration": {
+            "title": "Регистрация",
+            "emailLabel": "E-mail", 
+            "emailRequired": "E-mail е задължително поле",
+            "emailPatternError": "E-mail трябва да е по образеца email@example.com",
+            "usernameLabel": "Потребителско име", 
+            "usernameRequired": "Потребителското име е задържително",
+            "usernameExists": "Потребителското име е заето",
+            "passwordLabel": "Парола", 
+            "passwordRequired": "Паролата е задължиелна",
+            "accountTypeLabel": "Тип на профила",
+            "nameLabel": "Име",
+            "nameRequired": "Името е задължително за лекарските профили",
+            "phoneNumberLabel":"Телефонен номер",
+            "registerButton": "Регистрация",
+            "registartionCompleteMessage": "Успешно се регистрирахте.",
+            "registartionCompleteDoctorMessage": "Влезте в профила си за да довършите регистрацията си.",
+            "unsuccessful": "Нещо се обърка!"
+        },
+        "registrationDoctor": {
+            "previousButton": "Предишна страница",
+            "confirmButton": "Потвърди",
+            "nextButton": "Следваща страница"
+        },
+        "registrationDoctorInfo": {
+            "title": "Завършете регистрацията си",
+            "medicalFieldLabel": "Изберете специалност",
+            "practiceStartLabel": "Начало на практиката",
+            "practiceStartNote": "От кога работи като лекар с тази специалност",
+            "personalDescriptionLabel": "Лично описание",
+            "personalDescriptionNote": "Добавете описание за себе си",
+            "educationDescriptionLabel": "Описание на образованието",
+            "educationDescriptionNote": "Къде сте учили",
+            "practiceDescriptionLabel": "Описание на практиката",
+            "practiceDescriptionNote": "Къде сте работили",
+            "servicesDescriptionLabel": "Описание на услугите",
+            "servicesDescriptionNote": "Какви услуги/манипулации избършвате",
+            "photoLabel": "Добавете снимка"
+        },
+        "registrationDoctorWorkplaces": {
+            "title": "Добавете работните си места",
+            "newWorkplaceButton": "Добави работно място",
+            "removeButton": "Премахни работно място"
+        },
+        "workplaceForm": {
+            "cityLabel": "Изберете град",
+            "addressLabel": "Адрес",
+            "workscheduleHeading": "Добавете работния си график за това работно място",
+            "workscheduleNote": "Добавете запис за всеки интервал. Може да доабвяте повече от един интервал за ден.",
+            "newRecordButton": "Добави интервал",
+            "nameLabel":"Име",
+            "nameNote":"Може да добавите име на работното си място за яснота"
+        },
+        "workscheduleItem": {
+            "dayLabel": "Ден",
+            "fromLabel": "От",
+            "toLabel": "До"
+        },
+        "userProfile": {
+            "title": "Добре дошли ",
+            "completeDoctorRegistrationButton": "Завършете регистрацията си",
+            "userDataTitle": "Вашите данни",
+            "usernameLabel": "Потребителско име",
+            "emailLabel": "E-mail",
+            "passwordLabel": "Нова парола",
+            "confirmPasswordLabel": "Потвърди парола",
+            "nameLabel": "Име",
+            "phoneNumberLabel":"Телефонен номер",
+            "updateButton": "Обнови",
+            "confirmButton": "Потвърди",
+            "cancelButton": "Отказ",
+            "passwordMismatch": "Паролите не съвпадат",
+            "appointmentsHeading": "Вашите часове",
+            "table": {
+                "doctorHeader": "Лекар",
+                "patientHeader": "Пациент",
+                "timeHeader": "Време",
+                "placeHeader": "Място",
+                "commentHeader": "Коментар",
+                "phoneHeader": "Тел.номер"
+            }, 
+            "dataUpdated": "Данните са обновени",
+            "dataNotUpdated": "Нещо се обърка. Обновеването неуспешно"
+        },
+        "doctorProfile": {
+            "fieldLabel": "Специалност: ",
+            "personalDescriptionLabel": "Лично описание",
+            "educationDescriptionLabel": "Описание на образованието",
+            "practiceDescriptionLabel": "Описание на практиката",
+            "servicesDescriptionLabel": "Описание на услугите"
+        
+        }
+    }, 
+    "messages": {
+        "error": "Грешка",
+        "warning": "Предупреждение",
+        "success": "Успех"
+    },
+    "nav": {
+        "signIn": "Вход",
+        "logout": "Изход"
+    }
+} 

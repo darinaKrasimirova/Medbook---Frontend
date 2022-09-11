@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+    <div class="containter w-75 mt-4">
+        <h3 class="text-center">{{"forms.userProfile.title" | translate}}{{user?.name ?? user?.username}}</h3>
+        <div class="container mt-5 w-50 justify-content-center" *ngIf="user?.accountStatus === 'CREATED'">
+            <button class="btn btn-outline-primary offset-3 col-6" (click)="doctorRegistration()" type="button">{{"forms.userProfile.completeDoctorRegistrationButton" | translate}}</button>
+        </div>
+        <div class="container mt-5 border w-50">
+            <h4 class="text-center my-5">{{"forms.userProfile.userDataTitle" | translate}}</h4>
+            <form class="m-5">
+                <div class="form-group row mt-3">
+                    <label class="col-form-label col-4">{{"forms.userProfile.usernameLabel" | translate}}</label>
+                    <input class="col-form-input col-8" [readOnly]="true" [value]="user?.username ?? ''">
+                </div>
+                <div class="form-group row mt-3">
+                    <label class="col-form-label col-4">{{"forms.userProfile.emailLabel" | translate}}</label>
+                    <input class="col-form-input col-8" type="email" [formControl]="emailControl" [readOnly]="!formActive">
+                    <small class="text-danger" *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)">{{"forms.registration.emailPatternError" | translate}}</small>
+                </div>
+                <div class="form-group row mt-3">
+                    <label class="col-form-label col-4">{{"forms.userProfile.nameLabel" | translate}}</label>
+                    <input class="col-form-input col-8" [formControl]="nameControl" [readOnly]="!formActive">
+                </div>
+                <div class="form-group row mt-3">
+                    <label class="col-form-label col-4">{{"forms.userProfile.phoneNumberLabel" | translate}}</label>
+                    <input class="col-form-input col-8" [formControl]="phoneControl" [readOnly]="!formActive">
+                </div>
+                <div class="form-group row mt-3" [hidden]="!formActive">
+                    <label class="col-form-label col-4">{{"forms.userProfile.passwordLabel" | translate}}</label>
+                    <input class="col-form-input col-8" type="password"  [formControl]="passwordControl" >
+                </div>
+                <div class="form-group row mt-3" [hidden]="!formActive">
+                    <label class="col-form-label col-4">{{"forms.userProfile.confirmPasswordLabel" | translate}}</label>
+                    <input class="col-form-input col-8" type="password" [formControl]="password2Control">
+                    <small class="text-end text-danger" *ngIf="passwordControl.invalid || password2Control.invalid">{{"forms.userProfile.passwordsMismatch" | translate}}</small>
+                </div>
+                <div class="form-group row mt-5 justify-content-center" *ngIf="!formActive">
+                    <button class="btn btn-primary col-3" (click)="formActive = !formActive" type="button">{{"forms.userProfile.updateButton" | translate}}</button>
+                </div>
+                <div class="form-group row mt-5 justify-content-start" *ngIf="formActive">
+                    <button class="btn btn-primary col-3 offset-4" (click)="updateUserData()" [disabled]="formGroup.invalid || !formGroup.dirty" type="button">{{"forms.userProfile.confirmButton" | translate}}</button>
+                    <button class="btn btn-secondary col-3 offset-2" (click)="formActive = !formActive" type="button">{{"forms.userProfile.cancelButton" | translate}}</button>
+                </div>
+            </form>
+        </div>
+        <div class="container mt-5">
+            <h4 class="text-center my-3">{{"forms.userProfile.appointmentsHeading" | translate}}</h4>
+            <table class="table table-striped table-hover border mb-5">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center" *ngIf="user?.accountType == 'PATIENT'">{{"forms.userProfile.table.doctorHeader" | translate}}</th>
+                        <th scope="col" class="text-center" *ngIf="user?.accountType == 'DOCTOR'">{{"forms.userProfile.table.patientHeader" | translate}}</th>
+                        <th scope="col" class="text-center">{{"forms.userProfile.table.timeHeader" | translate}}</th>
+                        <th scope="col" class="text-center">{{"forms.userProfile.table.placeHeader" | translate}}</th>
+                        <th scope="col" class="text-center">{{"forms.userProfile.table.commentHeader" | translate}}</th>
+                        <th scope="col" class="text-center">{{"forms.userProfile.table.phoneHeader" | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let app of appointments$ | async; index as i">
+                        <td class="text-center">{{i + 1}}</td>
+                        <td class="text-center" *ngIf="user?.accountType == 'PATIENT'"><a [href]="'doctors/profile?id=' + app.doctor.id">{{app.doctor.name}}</a></td>
+                        <td class="text-center" *ngIf="user?.accountType == 'DOCTOR'">{{app.patient.name}}</td>
+                        <td class="text-center">{{toHumanReadableDate(app.date)}} {{app.time}}</td>
+                        <td class="text-center">{{ ("enums.cities."+ (app.workplace.city.name)) | translate}} {{app.workplace.address}}</td> 
+                        <td class="text-center">{{app.comment}}</td>
+                        <td class="text-center">{{user?.accountType == 'DOCTOR' ? app.patient.phoneNumber : app.doctor.phoneNumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

@@ -3,31 +3,37 @@
         <h4 class="text-center">{{"forms.registration.title" | translate}}</h4>
         <div class="form-group required row mt-5 justify-content-center">
             <label for="emailInput" class="col-4 col-form-label">{{"forms.registration.emailLabel" | translate}}</label>
-            <input class="is-invalid col-form-control col-8" type="email" id="emailInput" name="emailInput" required [formControl]="emailControl" [(ngModel)]="user.email">
+            <input class="is-invalid col-form-control col-8" type="email" id="emailInput" name="emailInput" required [formControl]="emailControl">
             <small class="text-danger" *ngIf="emailControl.hasError('required') && (emailControl.dirty || emailControl.touched)">{{"forms.registration.emailRequired" | translate}}</small>     
             <small class="text-danger" *ngIf="emailControl.hasError('email') && (emailControl.dirty || emailControl.touched)">{{"forms.registration.emailPatternError" | translate}}</small>     
        </div>
         <div class="form-group required row mt-3 justify-content-center">
             <label for="usernameInput" class="col-4 col-form-label">{{"forms.registration.usernameLabel" | translate}}</label>
-            <input class="col-form-control col-8" type="text" id="usernameInput" name="usernameInput" required [formControl]="usernameControl"  [(ngModel)]="user.username">
-            <small class="text-danger" *ngIf="usernameControl.invalid && (usernameControl.dirty || usernameControl.touched)">{{"forms.registration.usernameRequired" | translate}}</small>     
+            <input class="col-form-control col-8" type="text" id="usernameInput" name="usernameInput" required [formControl]="usernameControl" (blur)="checkUniqueUsername()">
+            <small class="text-danger" *ngIf="usernameControl.invalid && (usernameControl.dirty || usernameControl.touched)">{{"forms.registration.usernameRequired" | translate}}</small>
+            <small class="text-danger" *ngIf="usernameExists">{{"forms.registration.usernameExists" | translate}}</small>
         </div>
         <div class="form-group required row mt-3 justify-content-center">
             <label for="passwordInput" class="col-4 col-form-label">{{"forms.registration.passwordLabel" | translate}}</label>
-            <input class="col-form-control col-8" type="password" id="passwordInput" name="passwordInput" required [formControl]="passwordControl"  [(ngModel)]="user.password">
+            <input class="col-form-control col-8" type="password" id="passwordInput" name="passwordInput" required [formControl]="passwordControl">
             <small class="text-danger" *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)">{{"forms.registration.passwordRequired" | translate}}</small>     
         </div>
         <div class="form-group row mt-3 justify-content-center">
             <label for="acctypeInput" class="col-4 col-form-label">{{"forms.registration.accountTypeLabel" | translate}}</label>
-            <select class="col-form-select col-8" id="acctypeInput" name="acctypeInput" [formControl]="accTypeControl"  [(ngModel)]="user.accountType">
-                <option value="user">{{"enums.accountType.user" | translate}}</option>
-                <option value="doctor">{{"enums.accountType.doctor" | translate}}</option>
+            <select class="col-form-select col-8" id="acctypeInput" name="acctypeInput" [formControl]="accTypeControl">
+                <option value="PATIENT">{{"enums.accountType.patient" | translate}}</option>
+                <option value="DOCTOR">{{"enums.accountType.doctor" | translate}}</option>
             </select>
-        </div>
+        </div> 
         <div class="form-group row mt-3 justify-content-center">
             <label for="nameInput" class="col-4 col-form-label">{{"forms.registration.nameLabel" | translate}}</label>
-            <input class="col-form-control col-8" type="text" id="nameInput" name="nameInput" [formControl]="nameControl"  [(ngModel)]="user.name">
-            <small class="text-danger" *ngIf="(nameControl.invalid || accTypeControl.invalid) && (nameControl.dirty || nameControl.touched || accTypeControl.touched)">{{"forms.registration.nameRequired" | translate}}</small>     
+            <input class="col-form-control col-8" type="text" id="nameInput" name="nameInput" [formControl]="nameControl">
+            <small class="text-danger" *ngIf="nameControl.invalid || accTypeControl.invalid">{{"forms.registration.nameRequired" | translate}}</small>     
+        </div>
+        <div class="form-group row mt-3 justify-content-center">
+            <label for="nameInput" class="col-4 col-form-label">{{"forms.registration.phoneNumberLabel" | translate}}</label>
+            <input class="col-form-control col-8" type="text" id="nameInput" name="nameInput" [formControl]="phoneControl"> 
+            <!-- <small class="text-danger" *ngIf="nameControl.invalid || accTypeControl.invalid">{{"forms.registration.nameRequired" | translate}}</small>      -->
         </div>
         <div class="form-group row mt-5 justify-content-center">
             <button class="btn btn-primary col-4" [disabled]="formGroup.invalid" type="button" (click)="register()">{{"forms.registration.registerButton" | translate}}</button>
@@ -36,6 +42,7 @@
     <ng-template #elseBlock>
         <div class="d-flex justify-content-center mt-5">
             <p class="border border-info p-5">{{"forms.registration.registartionCompleteMessage" | translate}}</p>
+            <p *ngIf="user.accountType === 'DOCTOR'" class="border border-info p-5">{{"forms.registration.registartionCompleteDoctorMessage" | translate}}</p>
         </div>
     </ng-template>
 </div>

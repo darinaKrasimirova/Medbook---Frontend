@@ -16,6 +16,7 @@ export class WorkplaceFormComponent implements OnInit {
 
   cityControl!: FormControl;
   addressControl!: FormControl;
+  nameControl!: FormControl;
 
   workschedules: Workschedule[] = [];
 
@@ -29,10 +30,13 @@ export class WorkplaceFormComponent implements OnInit {
     this.cities$ = this.sharedService.getCities();
 
     this.cityControl = new FormControl(this.workplace.city);
-    this.cityControl.valueChanges.subscribe(e => this.workplace.city = e);
+    this.cityControl.valueChanges.subscribe(e => this.workplace.city = {id:Number(e)});
 
     this.addressControl = new FormControl(this.workplace.address);
     this.addressControl.valueChanges.subscribe(e => this.workplace.address = e);
+
+    this.nameControl = new FormControl(this.workplace.name);
+    this.nameControl.valueChanges.subscribe(e => this.workplace.name = e);
 
     if(!this.workplace.workschedule){
       this.workplace.workschedule = this.workschedules;

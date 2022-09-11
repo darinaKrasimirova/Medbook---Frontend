@@ -13,12 +13,7 @@ export class HttpLoginService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.get(this.baseUrl + "/users/login", {
-      params: {
-        "username": username,
-        "password": password
-      }
-    });
+    return this.http.post(this.baseUrl + "/users/login", { "username": username, "password": password });
   }
 
   register(user: User): Observable<any> {
@@ -27,5 +22,13 @@ export class HttpLoginService {
 
   registerDoctor(doctor: Doctor): Observable<any> {
     return this.http.post(this.baseUrl + "/doctors", doctor);
+  }
+
+  checkUsername(username: string): Observable<boolean>{
+    return this.http.get<boolean>(this.baseUrl + "/users/exist", {
+      params: {
+        "username": username
+      }
+    });
   }
 }

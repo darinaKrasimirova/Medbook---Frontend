@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+    <div class="component w-50 border border-info p-3" >
+        <div class="row p-3">
+            <img class="col-3 image" src="../../../assets/images/profile.jpg">
+            <div class="col-8 ml-3 mt-4">
+                <h3 class="text-center align-top">{{doctor?.name}}</h3>           
+                <div class="mt-5 align-bottom">
+                    <span>{{"forms.doctorProfile.fieldLabel" | translate}}</span>
+                    <span>{{("enums.medicalFields." + doctor?.medicalField?.name) | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-3">
+            <div class="p-2 bg-light border row mx-0">
+                <span class="col-3 align-self-center">{{"forms.doctorProfile.personalDescriptionLabel"| translate}}</span>
+                <span class="col-9">{{doctor?.personalDescription}}</span>
+            </div>
+            <div class="p-2 bg-light border row mx-0">
+                <span class="col-3 align-self-center">{{"forms.doctorProfile.educationDescriptionLabel"| translate}}</span>
+                <span class="col-9">{{doctor?.educationDescription}}</span>
+            </div>
+            <div class="p-2 bg-light border row mx-0">
+                <span class="col-3 align-self-center">{{"forms.doctorProfile.practiceDescriptionLabel"| translate}}</span>
+                <span class="col-9">{{doctor?.practiceDescription }}</span>
+            </div>
+            <div class="p-2 bg-light border row mx-0">
+                <span class="col-3 align-self-center">{{"forms.doctorProfile.servicesDescriptionLabel"| translate}}</span>
+                <span class="col-9">{{doctor?.servicesDescription}}</span>
+            </div>
+        </div>
+    </div>
+</div>

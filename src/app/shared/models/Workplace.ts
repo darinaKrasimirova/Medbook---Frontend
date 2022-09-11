@@ -7,6 +7,7 @@ export interface Workplace{
     doctor: Doctor
     city: City
     address: string
+    name: string
     workschedule: Workschedule[]
 
 }
