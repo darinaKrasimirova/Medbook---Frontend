@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SessionService } from './shared/services/session.service';
 
 @Component({
@@ -10,7 +11,11 @@ import { SessionService } from './shared/services/session.service';
 export class AppComponent {
   title = 'medbook';
   
-  constructor(private session: SessionService, private router: Router){}
+  constructor(
+    private session: SessionService, 
+    private router: Router,
+    private translate: TranslateService) { }
+
 
   hasSession(): boolean{
     return this.session.hasSession();
@@ -19,5 +24,9 @@ export class AppComponent {
   logout(){
     this.session.logout();
     this.router.navigate([""]);
+  }
+
+  changeSiteLanguage(code: string){
+    this.translate.use(code);
   }
 }
