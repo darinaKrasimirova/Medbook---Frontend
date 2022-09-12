@@ -21,8 +21,8 @@ export class SearchComponent implements OnInit {
 
   loadingSuccessful: boolean = true;
 
-  fieldControl = new FormControl(-1);
-  cityControl = new FormControl(-1);
+  fieldControl = new FormControl(0);
+  cityControl = new FormControl(0);
   nameContol = new FormControl('');
 
   constructor(
@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
   }
 
   getCities(){
-    this.medicalFields$ = this.sharedService.getCities()
+    this.medicalFields$ = this.sharedService.getMedicalFields()
         .pipe(
           catchError(err => {
             this.loadingSuccessful = false;
@@ -47,7 +47,7 @@ export class SearchComponent implements OnInit {
   }
 
   getMedicalFields(){
-    this.cities$ = this.sharedService.getMedicalFields()
+    this.cities$ = this.sharedService.getCities()
         .pipe(
           catchError(err => {
             this.loadingSuccessful = false;

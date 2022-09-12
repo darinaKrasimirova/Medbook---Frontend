@@ -48,6 +48,7 @@ export class UserProfileComponent implements OnInit {
       this.user = data;
       this.emailControl.reset(this.user.email);
       this.nameControl.reset(this.user.name);
+      this.phoneControl.reset(this.user.phoneNumber);
       this.appointments$ = this.httpService.getAppointmentsForUser(this.user).pipe(
         tap(e => console.log(e)),
         catchError(err => of([]))

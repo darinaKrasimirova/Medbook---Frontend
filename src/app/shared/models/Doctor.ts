@@ -3,7 +3,7 @@ import { Workplace } from "./Workplace"
 
 export interface Doctor{
     id?: number
-    userId?: number
+    username?: string
     name: string
     phoneNumber?:string
     personalDescription?: string

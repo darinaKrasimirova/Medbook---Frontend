@@ -10,7 +10,10 @@ import jwt_decode  from "jwt-decode"
     constructor(private http: HttpClient) { }
     
     getUserFromSession() : User|null {
-      return {id: 1} as User;
+      let token = localStorage.getItem("jwt");
+      if(token == null) return null;
+      let dtoken:any = jwt_decode(token);
+      return {username: dtoken.username} as User;
     }
 
     getToken(): string|null{

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MakeAppointmentComponent } from './appointment-making/make-appointment/make-appointment.component';
 import { SearchResultsComponent } from './appointment-making/search-results/search-results.component';
-import { SearchComponent } from './appointment-making/search/search.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrationDoctorInfoComponent } from './login/registration-doctor-info/registration-doctor-info.component';
@@ -25,7 +24,8 @@ const routes: Routes = [
     ]
   },
   {path: "profile", component: UserProfileComponent},  
-  {path: "doctors/profile", component: DoctorProfileComponent}
+  {path: "doctors/profile", component: DoctorProfileComponent},
+  {path: '**', component:HomeComponent}
 ];
 
 @NgModule({

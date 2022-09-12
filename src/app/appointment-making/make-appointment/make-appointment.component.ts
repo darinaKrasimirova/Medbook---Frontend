@@ -43,10 +43,10 @@ export class MakeAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.session.hasSession()){
-      console.log(this.route)
+      console.log(this.route.snapshot.queryParamMap.get("doctorId"))
       this.router.navigate(["login"], {
         queryParams: {
-          prev: "appointment?id=" + this.route.snapshot.queryParamMap.get("id")
+          prev: "appointment?doctorId=" + this.route.snapshot.queryParamMap.get("doctorId")
         }
       })
       return;

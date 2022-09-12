@@ -31,7 +31,7 @@
                 <div class="form-group row mt-3" [hidden]="!formActive">
                     <label class="col-form-label col-4">{{"forms.userProfile.confirmPasswordLabel" | translate}}</label>
                     <input class="col-form-input col-8" type="password" [formControl]="password2Control">
-                    <small class="text-end text-danger" *ngIf="passwordControl.invalid || password2Control.invalid">{{"forms.userProfile.passwordsMismatch" | translate}}</small>
+                    <small class="text-end text-danger" *ngIf="passwordControl.invalid || password2Control.invalid">{{"forms.userProfile.passwordMismatch" | translate}}</small>
                 </div>
                 <div class="form-group row mt-5 justify-content-center" *ngIf="!formActive">
                     <button class="btn btn-primary col-3" (click)="formActive = !formActive" type="button">{{"forms.userProfile.updateButton" | translate}}</button>

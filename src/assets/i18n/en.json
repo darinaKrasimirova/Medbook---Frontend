@@ -201,8 +201,9 @@
             "personalDescriptionLabel": "Personal description",
             "educationDescriptionLabel": "Education description",
             "practiceDescriptionLabel": "Practice description",
-            "servicesDescriptionLabel": "Services description"
-        
+            "servicesDescriptionLabel": "Services description",
+            "appointmentButton": "Make appointment"
+    
         }
     }, 
     "messages": {
@@ -213,6 +214,7 @@
     "nav": {
         "signIn": "Sign in",
         "logout": "Log out",
+        "profile": "Profile",
         "language":"Language"
     }
 } 

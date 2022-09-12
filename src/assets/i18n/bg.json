@@ -201,8 +201,8 @@
             "personalDescriptionLabel": "Лично описание",
             "educationDescriptionLabel": "Описание на образованието",
             "practiceDescriptionLabel": "Описание на практиката",
-            "servicesDescriptionLabel": "Описание на услугите"
-        
+            "servicesDescriptionLabel": "Описание на услугите",
+            "appointmentButton": "Запази час"
         }
     }, 
     "messages": {
@@ -213,6 +213,7 @@
     "nav": {
         "signIn": "Вход",
         "logout": "Изход",
+        "profile": "Профил",
         "language":"Език"
     }
 } 

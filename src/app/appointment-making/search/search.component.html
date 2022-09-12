@@ -7,14 +7,14 @@
                 <label for="cityInput" class="col-sm-3 col-form-label">{{"forms.search.cityLabel" | translate}}</label>
                 <select class="col-form-select col-sm-6" id="cityInput" [formControl]="cityControl">
                     <option value=0>{{"forms.search.cityInputDefault" | translate}}</option>
-                    <option *ngFor="let city of cities$ | async" value={{city.id}} >{{city.name}}</option>
+                    <option *ngFor="let city of cities$ | async" value={{city.id}} >{{"enums.cities." + city.name | translate}}</option>
                 </select>
             </div>
             <div class="form-group row mt-3">
                 <label for="medicalFieldInput" class="col-sm-3 col-form-label">{{"forms.search.medicalFieldLabel" | translate}}</label>
                 <select class="col-form-select col-sm-6" id="medicalFieldInput" [formControl]="fieldControl">
                     <option value=0>{{"forms.search.medicalFieldInputDefault" | translate}}</option>
-                    <option *ngFor="let field of medicalFields$ | async" value={{field.id}}>{{field.name}}</option>
+                    <option *ngFor="let field of medicalFields$ | async" value={{field.id}}>{{"enums.medicalFields." + field.name | translate}}</option>
                 </select>
             </div>
             <hr>

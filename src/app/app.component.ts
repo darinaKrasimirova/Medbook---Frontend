@@ -26,6 +26,14 @@ export class AppComponent {
     this.router.navigate([""]);
   }
 
+  gotoProfile(){
+    this.router.navigate(["profile"], {
+      queryParams: {
+        "username": this.session.getUserFromSession()?.username
+      }
+    })
+  }
+
   changeSiteLanguage(code: string){
     this.translate.use(code);
   }

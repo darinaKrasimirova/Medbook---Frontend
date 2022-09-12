@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError, of } from 'rxjs';
 import { Doctor } from 'src/app/shared/models/Doctor';
 import { Workplace } from 'src/app/shared/models/Workplace';
+import { SessionService } from 'src/app/shared/services/session.service';
 import { HttpLoginService } from '../services/http-login.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class RegistrationDoctorComponent implements OnInit {
     private router: Router,
     private service: HttpLoginService,
     private toastr: ToastrService, 
-    private translate: TranslateService) { }
+    private translate: TranslateService,
+    private session: SessionService) { }
 
   ngOnInit(): void {
     // this.route.queryParamMap.subscribe(params => {
@@ -51,7 +53,8 @@ export class RegistrationDoctorComponent implements OnInit {
 
   onActivate(component:any){
     if(!this.doctor){
-      this.doctor = {userId:5} as Doctor;
+      let username = this.session.getUserFromSession()?.username;
+      this.doctor = {username: username} as Doctor;
     }
     if(typeof component.setDoctor === 'function'){
       component.setDoctor(this.doctor);
@@ -88,7 +91,11 @@ export class RegistrationDoctorComponent implements OnInit {
       })
     ).subscribe(data => {
       this.registrationComplete = true;
-      setTimeout(() => this.router.navigate(['/login']),5000);
+      setTimeout(() => this.router.navigate(['/profile'], {
+        queryParams: {
+          "username": this.session.getUserFromSession()?.username
+        }
+      }),5000);
     });
   }
 }
